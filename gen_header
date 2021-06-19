@@ -1,0 +1,11 @@
+#!/bin/bash
+
+[[ $# -lt 1 ]] && echo "Please provide a header file name!" && exit 1
+
+for file in $@
+do
+	echo "#ifndef _${file^^}_H_
+#define _${file^^}_H_
+
+#endif" > "${file}.h"
+done
